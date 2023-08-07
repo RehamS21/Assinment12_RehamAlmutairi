@@ -1,0 +1,65 @@
+Question 1:
+- The output is: 
+hey from message1.
+
+- Explanation : 
+We have a @Bean annotation then the methods will execute and print the message on the terminal.
+__________________________________
+
+Question 2:
+- The output is: 
+hey from message1
+hey from message2
+
+- Explanation : 
+We have a @Qualifier, and with the Spring boot context will execute the getMessage1() first then execute the getMessage2().
+__________________________________
+
+Question 3:
+- The output is 1: 
+hey from message1
+hey from message3
+hey from message2
+
+- The output is 2: 
+hey from message3
+hey from message2
+hey from message1
+
+- Explanation : 
+There is uncertainty about the execution order of the getMessage1() and getMessage3() methods within the Spring Boot context.
+On the other hand, getMessage2() contains a reference to @Quantifier(3), and with the Spring Boot context, getMessage3() will execute before getMessage2(), and then getMessage2() will be executed.
+__________________________________
+
+Question 4:
+- The output is 1: 
+hey from message1
+hey from message3
+hey from message2
+
+- The output is 2: 
+hey from message3
+hey from message2
+hey from message1
+
+- Explanation : 
+It is uncertain if getMessage1() will be executed first, but MainController will not execute before getMessage1() but the MainController not be shown because no @Bean added.
+Similarly, getMessage2() will not execute before getMessage3(). However, with Spring boot context, the order between getMessage1() and getMessage3() cannot be determined unless we have a @Qualifier to determine it.
+__________________________________
+
+Question 5:
+- The output is 1:
+hey from message1
+hey from message3
+hey from message2
+
+- The output is 2:
+hey from message3
+hey from message2
+hey from message1
+
+
+- Explanation : 
+getMessage1() with Spring boot context we can't determine if will execute at first. Also, the parameter that takes is different from other return types in other methods, so it does not show the syntax error.
+The function getMessage2() can only execute after the getMessage3() function has been executed. Similarly, the Maincontroller() function will not execute until getMessage2() has been executed, but the output of Maincontroller() will not be visible unless the annotation @Bean is added.
+When it comes to the order of execution between getMessage1() and getMessage3() with Spring Boot context, it's unclear which one will run first if @Qualifier is not included.
